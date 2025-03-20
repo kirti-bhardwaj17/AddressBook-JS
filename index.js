@@ -1,34 +1,38 @@
-const Contact = require("./script.js/contact");
-const AddressBook = require("./script.js/addressBook");
+const Contact = require("./ScriptJS/Contact");
+const AddressBook = require("./ScriptJS/AddressBook");
 
 const myAddressBook = new AddressBook();
 
-try {
-  const contact1 = new Contact(
-    "John",
-    "Doe",
-    "123 Main St",
-    "New York",
-    "New York",
-    "100001",
-    "9876543210",
-    "john@example.com"
-  );
-  myAddressBook.addContact(contact1);
+const contact1 = new Contact(
+  "Ayushi",
+  "Singh",
+  "123 MG Road",
+  "Delhi",
+  "Delhi",
+  "110001",
+  "9876543210",
+  "ayushi@example.com"
+);
+const contact2 = new Contact(
+  "Ashutosh",
+  "Sharma",
+  "456 Lajpat Nagar",
+  "Mumbai",
+  "Maharashtra",
+  "400001",
+  "9876543211",
+  "ashutosh@example.com"
+);
 
-  const contact2 = new Contact(
-    "Alice",
-    "Brown",
-    "456 Park Ave",
-    "Los Angeles",
-    "California",
-    "900001",
-    "9876543211",
-    "alice@example.com"
-  );
-  myAddressBook.addContact(contact2);
-} catch (error) {
-  console.error("❌ Error:", error.message);
-}
+myAddressBook.addContact(contact1);
+myAddressBook.addContact(contact2);
+
+myAddressBook.displayContacts();
+
+// Editing Contact
+myAddressBook.editContact("Ayushi", {
+  phone: "9998887777",
+  email: "ayushi.singh@newmail.com",
+});
 
 myAddressBook.displayContacts();
