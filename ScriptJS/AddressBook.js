@@ -4,7 +4,6 @@ class AddressBook {
   }
 
   addContact(contact) {
-    // Check for duplicate based on first and last name
     const isDuplicate = this.contacts.some(
       (c) =>
         c.firstName === contact.firstName && c.lastName === contact.lastName
@@ -40,10 +39,36 @@ class AddressBook {
     });
   }
 
-  countContacts() {
-    const total = this.contacts.reduce((count) => count + 1, 0);
-    console.log(`\nTotal Contacts: ${total}`);
-    return total;
+  searchByCity(city) {
+    const results = this.contacts.filter(
+      (contact) => contact.city.toLowerCase() === city.toLowerCase()
+    );
+    if (results.length === 0) {
+      console.log(`No contacts found in city: ${city}`);
+    } else {
+      console.log(`\nContacts in ${city}:`);
+      results.forEach((contact) =>
+        console.log(
+          `${contact.firstName} ${contact.lastName}, Phone: ${contact.phone}, Email: ${contact.email}`
+        )
+      );
+    }
+  }
+
+  searchByState(state) {
+    const results = this.contacts.filter(
+      (contact) => contact.state.toLowerCase() === state.toLowerCase()
+    );
+    if (results.length === 0) {
+      console.log(`No contacts found in state: ${state}`);
+    } else {
+      console.log(`\nContacts in ${state}:`);
+      results.forEach((contact) =>
+        console.log(
+          `${contact.firstName} ${contact.lastName}, Phone: ${contact.phone}, Email: ${contact.email}`
+        )
+      );
+    }
   }
 }
 
