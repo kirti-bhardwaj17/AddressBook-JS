@@ -29,28 +29,17 @@ class AddressBook {
       return;
     }
     this.contacts.forEach((contact, index) => {
-      console.log(
-        `${index + 1}. ${contact.firstName} ${contact.lastName}, ${
-          contact.address
-        }, ${contact.city}, ${contact.state} - ${contact.zip}, Phone: ${
-          contact.phone
-        }, Email: ${contact.email}`
-      );
+      console.log(`${index + 1}. ${contact.toString()}`);
     });
   }
 
-  countPersonsByCity(city) {
-    const count = this.contacts.filter(
-      (contact) => contact.city.toLowerCase() === city.toLowerCase()
-    ).length;
-    console.log(`\nNumber of persons in ${city}: ${count}`);
-  }
-
-  countPersonsByState(state) {
-    const count = this.contacts.filter(
-      (contact) => contact.state.toLowerCase() === state.toLowerCase()
-    ).length;
-    console.log(`\nNumber of persons in ${state}: ${count}`);
+  sortContactsByName() {
+    this.contacts.sort((a, b) => {
+      const nameA = (a.firstName + " " + a.lastName).toLowerCase();
+      const nameB = (b.firstName + " " + b.lastName).toLowerCase();
+      return nameA.localeCompare(nameB);
+    });
+    console.log("\nContacts sorted alphabetically by name.");
   }
 }
 
