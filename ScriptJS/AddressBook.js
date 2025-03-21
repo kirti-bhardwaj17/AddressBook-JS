@@ -39,30 +39,18 @@ class AddressBook {
     });
   }
 
-  viewPersonsByCity(city) {
-    const persons = this.contacts
-      .filter((contact) => contact.city.toLowerCase() === city.toLowerCase())
-      .map((contact) => `${contact.firstName} ${contact.lastName}`);
-
-    if (persons.length === 0) {
-      console.log(`No persons found in city: ${city}`);
-    } else {
-      console.log(`\nPersons in ${city}:`);
-      persons.forEach((person) => console.log(person));
-    }
+  countPersonsByCity(city) {
+    const count = this.contacts.filter(
+      (contact) => contact.city.toLowerCase() === city.toLowerCase()
+    ).length;
+    console.log(`\nNumber of persons in ${city}: ${count}`);
   }
 
-  viewPersonsByState(state) {
-    const persons = this.contacts
-      .filter((contact) => contact.state.toLowerCase() === state.toLowerCase())
-      .map((contact) => `${contact.firstName} ${contact.lastName}`);
-
-    if (persons.length === 0) {
-      console.log(`No persons found in state: ${state}`);
-    } else {
-      console.log(`\nPersons in ${state}:`);
-      persons.forEach((person) => console.log(person));
-    }
+  countPersonsByState(state) {
+    const count = this.contacts.filter(
+      (contact) => contact.state.toLowerCase() === state.toLowerCase()
+    ).length;
+    console.log(`\nNumber of persons in ${state}: ${count}`);
   }
 }
 
