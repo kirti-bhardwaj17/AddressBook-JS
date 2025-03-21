@@ -5,13 +5,13 @@ class AddressBook {
 
   addContact(contact) {
     this.contacts.push(contact);
-    console.log(" Contact added successfully!");
+    console.log("Contact added successfully!");
   }
 
   displayContacts() {
-    console.log("\n📘 Address Book Contacts:");
+    console.log("\nAddress Book Contacts:");
     if (this.contacts.length === 0) {
-      console.log(" No contacts found!");
+      console.log("No contacts found!");
       return;
     }
     this.contacts.forEach((contact, index) => {
@@ -25,24 +25,10 @@ class AddressBook {
     });
   }
 
-  editContact(firstName, updatedDetails) {
-    const contact = this.contacts.find((c) => c.firstName === firstName);
-    if (contact) {
-      Object.assign(contact, updatedDetails);
-      console.log(` Contact '${firstName}' updated successfully!`);
-    } else {
-      console.log(` Contact '${firstName}' not found!`);
-    }
-  }
-
-  deleteContact(firstName) {
-    const index = this.contacts.findIndex((c) => c.firstName === firstName);
-    if (index !== -1) {
-      this.contacts.splice(index, 1);
-      console.log(` Contact '${firstName}' deleted successfully!`);
-    } else {
-      console.log(` Contact '${firstName}' not found!`);
-    }
+  countContacts() {
+    const total = this.contacts.reduce((count, contact) => count + 1, 0);
+    console.log(`\nTotal Contacts: ${total}`);
+    return total;
   }
 }
 
