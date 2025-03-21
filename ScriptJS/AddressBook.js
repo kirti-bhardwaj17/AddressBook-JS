@@ -39,35 +39,29 @@ class AddressBook {
     });
   }
 
-  searchByCity(city) {
-    const results = this.contacts.filter(
-      (contact) => contact.city.toLowerCase() === city.toLowerCase()
-    );
-    if (results.length === 0) {
-      console.log(`No contacts found in city: ${city}`);
+  viewPersonsByCity(city) {
+    const persons = this.contacts
+      .filter((contact) => contact.city.toLowerCase() === city.toLowerCase())
+      .map((contact) => `${contact.firstName} ${contact.lastName}`);
+
+    if (persons.length === 0) {
+      console.log(`No persons found in city: ${city}`);
     } else {
-      console.log(`\nContacts in ${city}:`);
-      results.forEach((contact) =>
-        console.log(
-          `${contact.firstName} ${contact.lastName}, Phone: ${contact.phone}, Email: ${contact.email}`
-        )
-      );
+      console.log(`\nPersons in ${city}:`);
+      persons.forEach((person) => console.log(person));
     }
   }
 
-  searchByState(state) {
-    const results = this.contacts.filter(
-      (contact) => contact.state.toLowerCase() === state.toLowerCase()
-    );
-    if (results.length === 0) {
-      console.log(`No contacts found in state: ${state}`);
+  viewPersonsByState(state) {
+    const persons = this.contacts
+      .filter((contact) => contact.state.toLowerCase() === state.toLowerCase())
+      .map((contact) => `${contact.firstName} ${contact.lastName}`);
+
+    if (persons.length === 0) {
+      console.log(`No persons found in state: ${state}`);
     } else {
-      console.log(`\nContacts in ${state}:`);
-      results.forEach((contact) =>
-        console.log(
-          `${contact.firstName} ${contact.lastName}, Phone: ${contact.phone}, Email: ${contact.email}`
-        )
-      );
+      console.log(`\nPersons in ${state}:`);
+      persons.forEach((person) => console.log(person));
     }
   }
 }
