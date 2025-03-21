@@ -29,10 +29,7 @@ myAddressBook.addContact(contact2);
 
 myAddressBook.displayContacts();
 
-// Editing Contact
-myAddressBook.editContact("Ayushi", {
-  phone: "9998887777",
-  email: "ayushi.singh@newmail.com",
-});
+// Deleting Contact
+myAddressBook.deleteContact("Ayushi");
 
 myAddressBook.displayContacts();
