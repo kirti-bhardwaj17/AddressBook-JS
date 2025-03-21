@@ -4,17 +4,28 @@ const AddressBook = require("./ScriptJS/AddressBook");
 const myAddressBook = new AddressBook();
 
 const contact1 = new Contact(
-  "Ayushi",
-  "Singh",
+  "Kirti",
+  "Bhardwaj",
   "123 MG Road",
   "Delhi",
   "Delhi",
   "110001",
   "9876543210",
-  "ayushi@example.com"
+  "div@example.com"
 );
+const dupl = new Contact(
+  "Aanshika",
+  "Sangha",
+  "789 Andheri",
+  "Mumbai",
+  "Maharashtra",
+  "400002",
+  "9876543212",
+  "div@example.com"
+);
+
 const contact2 = new Contact(
-  "Ashutosh",
+  "Vivek",
   "Sharma",
   "456 Lajpat Nagar",
   "Mumbai",
@@ -23,13 +34,21 @@ const contact2 = new Contact(
   "9876543211",
   "ashutosh@example.com"
 );
+const duplicateContact = new Contact(
+  "Shivaji",
+  "Sangha",
+  "789 Andheri",
+  "Mumbai",
+  "Maharashtra",
+  "400002",
+  "9876543212",
+  "div@example.com"
+);
 
 myAddressBook.addContact(contact1);
 myAddressBook.addContact(contact2);
+myAddressBook.addContact(dupl);
+myAddressBook.addContact(duplicateContact); // This should be rejected
 
 myAddressBook.displayContacts();
-
-// Deleting Contact
-myAddressBook.deleteContact("Ayushi");
-
-myAddressBook.displayContacts();
+myAddressBook.countContacts();
